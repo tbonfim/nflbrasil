@@ -8,14 +8,8 @@
  * Controller of the nflbrasilApp
  */
 angular.module('nflbrasilApp')
-  .controller('LoaderCtrl', function ($scope, $http) {
+  .controller('LoaderCtrl', function ($scope, currentWeekService) {
    
+	$scope.weekData = currentWeekService.getGames();
 
-
-    $http.get('http://api.fantasy.nfl.com/v1/game/stats?format=json').
-        success(function(data) {
-            $scope.data  = data;
-            console.log( $scope.data);
-        });
-
-  });
+});
